@@ -1,1 +1,28 @@
-# teamnote
+# Teamnote
+
+-  Data Structure
+    -  [Union Find Roll Back](src/data_structure/union_find_roll_back.cpp)
+-  Graph
+    -  [Dinic](src/graph/flow/dinic.cpp)
+    -  [Mcmf](src/graph/flow/mcmf.cpp)
+    -  [2Sat](src/graph/others/2sat.cpp)
+    -  [Scc](src/graph/others/scc.cpp)
+    -  [Dominator Tree](src/graph/tree/dominator_tree.cpp)
+    -  [Dynamic Segment Tree](src/graph/tree/dynamic_segment_tree.cpp)
+    -  [Dynamic Segment Tree With Lazy](src/graph/tree/dynamic_segment_tree_with_lazy.cpp)
+    -  [Fenwick](src/graph/tree/fenwick.cpp)
+    -  [Gomory Hu](src/graph/tree/gomory_hu.cpp)
+    -  [Hld](src/graph/tree/hld.cpp)
+    -  [Lca](src/graph/tree/lca.cpp)
+    -  [Pst](src/graph/tree/pst.cpp)
+    -  [Segment Tree](src/graph/tree/segment_tree.cpp)
+    -  [Segment Tree With Lazy](src/graph/tree/segment_tree_with_lazy.cpp)
+-  Others
+    -  [Fastinput](src/others/fastinput.cpp)
+    -  [Main](src/others/main.cpp)
+-  String
+    -  [Aho Corasick](src/string/aho_corasick.cpp)
+    -  [Kmp](src/string/kmp.cpp)
+    -  [Z](src/string/z.cpp)
+-  Geometry
+    -  [Ccw](src/geometry/ccw.cpp)

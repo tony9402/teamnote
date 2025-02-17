@@ -80,6 +80,7 @@ def make_format(path: str):
     return text
 
 tex = []
+markdown = []
 def make_tex(tree: "defaultdict", current_key: str = "", dep: int = -1):
     assert dep <= 2
 
@@ -87,10 +88,17 @@ def make_tex(tree: "defaultdict", current_key: str = "", dep: int = -1):
         current_key = current_key.replace('_', ' ').title()
         section = f"\\{sections[dep]}{{{current_key}}}"
         tex.append(f"{section}")
+        line = " " * dep + "- "
+        line = f"{line} {current_key}"
+        markdown.append(line)
 
     if "files" in tree:
         for file_path in tree["files"]:
             tex.append(make_format(file_path))
+            line = " " * (dep + 4) + "- "
+            algorithm_title = file_path.split('/')[-1].split('.')[0].replace('_', ' ').title()
+            line = f"{line} [{algorithm_title}](src/{file_path})"
+            markdown.append(line)
 
     for k, v in tree.items():
         if k != "files":
@@ -101,3 +109,9 @@ make_tex(code_tree)
 
 with open("code.tex", encoding="utf-8", mode="w") as f:
     f.write("\n\n".join(tex))
+    f.close()
+
+with open("README.md", encoding='utf-8', mode='w') as f:
+    f.write("# Teamnote\n\n")
+    f.write("\n".join(markdown))
+    f.close()
