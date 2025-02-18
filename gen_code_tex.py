@@ -8,7 +8,8 @@ root = "src"
 code_files = [x[len(root)+1:] for x in glob(f"{root}/**/*.cpp", recursive=True) if x.count('.') == 1]
 sections = ["section", "subsection", "subsubsection"]
 
-shutil.rmtree("tmp")
+if os.path.exists("tmp"):
+    shutil.rmtree("tmp")
 
 # Make Tree
 code_tree = defaultdict(dict)

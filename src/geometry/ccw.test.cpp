@@ -21,6 +21,10 @@ template<typename T> int ccw(Point<T> a, Point<T> b, Point<T> c) {
     T x = a * b + b * c + c * a;
     return (x > 0) - (x < 0);
 }
+template<typename T> T dist(Point<T> a, Point<T> b) {
+    T x = (a.x - b.x), y = (a.y - b.y);
+    return x * x + y * y;
+}
 template<typename T> struct Line {
     Point<T> p1, p2;
     Line():Line(0, 0) {}

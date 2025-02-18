@@ -6,6 +6,7 @@ template<typename T> struct Point {
     Point operator-(Point p) { return Point(x-p.x,y-p.y); }
     T operator*(Point p) { return x*p.y-y*p.x; }
     bool operator==(Point p) { return x == p.x && y == p.y; }
+    bool operator<(Point p) { return x == p.x ? y < p.y : x < p.x; }
     template<typename OT> void operator=(Point<OT> p) { *this=Point(p.x,p.y); }
     void t() { swap(x, y); }
 };
@@ -15,6 +16,9 @@ template<typename T> inline ostream& operator<<(ostream &out, Point<T> &o) { out
 template<typename T> int ccw(Point<T> a, Point<T> b, Point<T> c) {
     T x = a * b + b * c + c * a;
     return (x > 0) - (x < 0);
+}
+template<typename T> T dist(Point<T> a, Point<T> b) {
+    return (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);
 }
 template<typename T> struct Line {
     Point<T> p1, p2;
