@@ -1,4 +1,5 @@
 import os
+import subprocess as sp
 import shutil
 from typing import Optional
 from glob import glob
@@ -47,6 +48,7 @@ for code_path in code_files:
     with open(dst, 'w', encoding='utf-8') as f:
         f.write(clean_code(src))
         f.close()
+    sp.call(f'clang-format -style=google --length=60 -i {dst}', shell=True)
 
 
 # Generate Tex
