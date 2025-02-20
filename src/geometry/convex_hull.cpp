@@ -33,3 +33,18 @@ template<typename T> pair<Point<T>, Point<T>> get_far_two_point(vector<Point<T>>
     }
     return res;
 }
+template<typename T> bool IsPointInConvex(const vector<Point<T>> &V, Point<T> p) {
+    if(V[0].x >= p.x) return false;
+    int N = (int)V.size();
+    
+    int l = 0, r = N - 1;
+    while(l <= r) {
+        int mid = (l + r) / 2;
+        if(ccw(V[0], V[mid], p) >= 0) l = mid + 1;
+        else r = mid - 1;
+    }
+    l = (l + N) % N; r = (r + N) % N;
+    if(ccw(V[0], V[r], p) == 0) return p < V[r];
+    int nxt = (r + 1) % N;
+    return ccw(V[r], V[nxt], p) > 0;
+}
