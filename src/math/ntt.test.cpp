@@ -3,12 +3,15 @@
 
 using namespace std;
 
-
 using ll = long long;
 template<typename T> T power(T a, T b, T mod) {
-    if(b == 0) return 1;
-    if(~b & 1) return power(a * a % mod, b >> 1, mod);
-    return a * power(a, b - 1, mod) % mod;
+    T ret = 1;
+    while(b) {
+        if(b & 1) ret = ret * a % mod;
+        a = a * a % mod;
+        b >>= 1;
+    }
+    return ret;
 }
 // (MOD) 104,857,601   =  25 * 2^22 + 1, w = 3
 // (MOD) 998,244,353   = 119 * 2^23 + 1, w = 3

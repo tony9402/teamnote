@@ -1,10 +1,6 @@
 // Tested
+// Need power template
 using ll = long long;
-template<typename T> T power(T a, T b, T mod) {
-    if(b == 0) return 1;
-    if(~b & 1) return power(a * a % mod, b >> 1, mod);
-    return a * power(a, b - 1, mod) % mod;
-}
 // (MOD) 104,857,601   =  25 * 2^22 + 1, w = 3
 // (MOD) 998,244,353   = 119 * 2^23 + 1, w = 3
 // (MOD) 2,281,701,377 =  17 * 2^27 + 1, w = 3

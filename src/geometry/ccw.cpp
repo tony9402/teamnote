@@ -1,3 +1,4 @@
+// Tested
 template<typename T> struct Point {
     T x, y;
     Point():Point(0, 0) { }
@@ -5,8 +6,8 @@ template<typename T> struct Point {
     Point operator+(Point p) { return Point(x+p.x,y+p.y); }
     Point operator-(Point p) { return Point(x-p.x,y-p.y); }
     T operator*(Point p) { return x*p.y-y*p.x; }
-    bool operator==(Point p) { return x == p.x && y == p.y; }
-    bool operator<(Point p) { return x == p.x ? y < p.y : x < p.x; }
+    bool operator==(Point p) const { return x == p.x && y == p.y; }
+    bool operator<(Point p) const { return x == p.x ? y < p.y : x < p.x; }
     template<typename OT> void operator=(Point<OT> p) { *this=Point(p.x,p.y); }
     void t() { swap(x, y); }
 };
@@ -18,7 +19,8 @@ template<typename T> int ccw(Point<T> a, Point<T> b, Point<T> c) {
     return (x > 0) - (x < 0);
 }
 template<typename T> T dist(Point<T> a, Point<T> b) {
-    return (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);
+    T x = (a.x - b.x), y = (a.y - b.y);
+    return x * x + y * y;
 }
 template<typename T> struct Line {
     Point<T> p1, p2;
@@ -66,3 +68,15 @@ template<typename T, typename AT> pair<int, Point<AT>> intersection_point(Line<T
     T d = l1.dx() * l2.dy() - l1.dy() * l2.dx();
     return make_pair(chk, Point<AT>(1. * a / d, 1. * b / d));
 }
+template<typename T> bool is_inner(const vector<Point<T>> &V, Point<T> p, bool on_line=false) {
+    int cnt = 0;
+    Point<T> inf(INT_MAX, p.y + 1);
+    int N = (int)V.size();
+    for(int i = 0, j = 1; i < N; ++i, j = (j + 1) % N) {
+        if(V[i] == p) return true;
+        if(on_line && intersect(Line<T>(V[i], V[j]), Line<T>(p, p)) != 0) return true;
+        cnt += intersect(Line<T>(V[i], V[j]), Line<T>(p, inf)) != 0;
+    }
+    return cnt & 1;
+}
+// Box와 직선 또는 선분이 교차하는지 (Box 안에 선분이 존재하는걸 포함)
