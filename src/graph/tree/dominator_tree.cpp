@@ -1,4 +1,5 @@
 // Tested
+// O((V+E)logV)
 vector<int> DominatorTree(const vector<vector<int>> &G, int start_node) {
     int N = (int)G.size();
     vector<vector<int>> rG(N);

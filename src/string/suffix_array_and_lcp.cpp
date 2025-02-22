@@ -1,4 +1,5 @@
 // Tested
+// O(NlogN)
 struct SuffixArray {
     vector<int> SA, LCP;
     int N;

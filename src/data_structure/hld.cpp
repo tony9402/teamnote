@@ -1,4 +1,5 @@
 // Tested
+// Query O(logN) or O(log^2N) Update O(logN) or O(log^2N)
 struct HLD {
     Graph<int> G;
     vector<int> par, top, dep, siz, in, out;

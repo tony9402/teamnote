@@ -1,4 +1,5 @@
 // Tested
+// O(logN)
 #include<ext/rope>
 using namespace __gnu_cxx;
 string S; crope rp = S.c_str();

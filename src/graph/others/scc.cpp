@@ -1,5 +1,6 @@
 // Tested
 // 1-indexed, Need Graph template
+// O(V+E)
 struct SCC {
     int N, id;
     Graph<int> G;

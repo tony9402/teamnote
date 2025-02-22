@@ -1,4 +1,5 @@
 // Tested
+// O(V^2E)
 struct Dinic {
     struct Node {
         int node_idx, cost, flow, rev;

@@ -1,3 +1,4 @@
+// Build O(NlogN) Query O(log^2N)
 template<typename T> struct MergesortTree {
     vector<vector<T>> tree;
     int siz;

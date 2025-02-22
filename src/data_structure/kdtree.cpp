@@ -1,4 +1,5 @@
 // Tested
+// Time Complexity: Build O(Nlog^2N) Query O(logN)
 template<typename T> inline T INF() { return numeric_limits<T>::max() / 2; }
 template<typename T> inline T square(T x) { return x * x; }
 template<typename T> struct KDTree {

@@ -1,4 +1,5 @@
 // Tested
+// Query O(logN) Update O(logN)
 template<typename T> struct Fenwick {
     int N;
     vector<T> tree;

@@ -1,4 +1,5 @@
 // Tested
+// Query O(logN)
 template<typename T>
 struct PST{
     struct Node{

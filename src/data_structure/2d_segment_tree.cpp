@@ -1,4 +1,6 @@
 // Tested
+// Time Complexity: Space O(N^2) Query O(log^2N) Update O(log^2N)
+// [l, r]
 template<typename T> struct Segment2D{
     vector<vector<T>> tree;
     int sizY, sizX;

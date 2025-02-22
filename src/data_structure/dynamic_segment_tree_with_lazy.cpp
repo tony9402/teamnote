@@ -1,4 +1,5 @@
 // Tested
+// Query O(logN) Update O(logN)
 const int MAXL = 1000000000;
 template<typename T>
 struct DynamicSegmentLazy{

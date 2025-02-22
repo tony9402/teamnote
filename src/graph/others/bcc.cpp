@@ -1,5 +1,6 @@
 // Tested
 // Need Graph template, 1-indexed
+// O(V+E)
 struct BCC {
     int N, dfs_id;
     Graph<int> G;

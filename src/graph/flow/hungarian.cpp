@@ -1,5 +1,5 @@
 // Tested
-// Kactl Template
+// Kactl Template, O(N^3)
 pair<int, vector<int>> hungarian(const vector<vector<int>> &a) {
     if (a.empty()) return {0, {}};
     int n = (int)a.size() + 1, m = (int)(a[0].size()) + 1;
